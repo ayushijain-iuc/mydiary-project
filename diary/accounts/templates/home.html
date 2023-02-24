@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Mydiary</title>
+</head>
+<body>
+    <h1>verify its you!!!</h1>
+    {% if error %}
+    <h1>{{error}}</h1>
+    {% endif %}
+    <div class="container">
+    <form action="{% url 'login' %}" method='POST'>
+        {% csrf_token %}
+        <div class="form-group">
+          <label >Username</label>
+          <input type="text" name="username" class="form-control"  placeholder="Enter username"><br>
+     
+        </div>
+        <div class="form-group">
+          <label >Password</label>
+          <input type="password" name="password" class="form-control" placeholder="Password"><br>
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" >
+          <label class="form-check-label">Check me out</label><br>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button><br>
+       <a href='{% url 'signup'%}'> Create An Account</a>
+      </form>
+    </div>
+</body>
+</html>
