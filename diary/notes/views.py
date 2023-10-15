@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from accounts.models import memory
 from django.contrib.auth.models import User
+
 def show(request):
     log=request.user
     memories=memory.objects.filter(user=log)
